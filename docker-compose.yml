@@ -1,0 +1,43 @@
+version: '3'
+services:
+  user_service:
+    container_name: user_service
+    build:
+      context: ./udactiy-c3-user
+      dockerfile: Dockerfile
+    volumes:
+      - $HOME/.aws:/root/.aws
+    ports:
+      - "8081:8080"
+    env_file:
+      - scheeles.env
+  feed_service:
+    container_name: feed_service
+    build:
+      context: ./udacity-c3-feed
+      dockerfile: Dockerfile
+    volumes:
+    - $HOME/.aws:/root/.aws
+    ports:
+      - "8082:8080"
+    env_file:
+      - scheeles.env
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - user_service
+      - feed_service    
+  frontend_service:
+    container_name: frontend_service
+    build:
+      context: ./udacity-c3-frontend
+      dockerfile: Dockerfile
+    ports:
+      - "80:8100"
+      - "8100:80"
+    depends_on:
+      - nginx
