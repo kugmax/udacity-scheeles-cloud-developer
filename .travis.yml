@@ -17,4 +17,4 @@ before_install:
 
 
 install:
-  - docker-compose -f docker-compose-build.yaml build --parallel
+  - docker-compose -f docker-compose-build.yml build --parallel
