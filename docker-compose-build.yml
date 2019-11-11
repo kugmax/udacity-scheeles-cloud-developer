@@ -1,0 +1,18 @@
+version: "3"
+services:
+  nginx:
+    build:
+      context: ./nginx
+    image: kugmax/nginx
+  user_service:
+    build:
+      context: ./udactiy-c3-user
+    image: kugmax/udacity-restapi-user
+  feed_service:
+    build:
+      context: ./udactiy-c3-feed
+    image: kugmax/udacity-restapi-feed
+  frontend_service:
+    build:
+      context: ./udactiy-c3-frontend  
+    image: kugmax/udacity-frontend
