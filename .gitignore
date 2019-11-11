@@ -1,2 +1,4 @@
 scheeles-env.sh
 scheeles.env
+env-secret.yaml
+env-configmap.yaml
