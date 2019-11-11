@@ -3,16 +3,16 @@ services:
   nginx:
     build:
       context: ./nginx
-    image: kugmax/nginx
+    image: kugmax/udacity-c3-nginx
   user_service:
     build:
       context: ./udactiy-c3-user
-    image: kugmax/udacity-restapi-user
+    image: kugmax/udacity-c3-user
   feed_service:
     build:
       context: ./udactiy-c3-feed
-    image: kugmax/udacity-restapi-feed
+    image: kugmax/udacity-c3-feed
   frontend_service:
     build:
       context: ./udactiy-c3-frontend  
-    image: kugmax/udacity-frontend
+    image: kugmax/udacity-c3-frontend
