@@ -15,7 +15,7 @@ spec:
         service: user-service
     spec:
       containers:
-      - image: kugmax/udacity-c3-user
+      - image: kugmax/udacity-c3-user:latest
         name: user-service
         imagePullPolicy: Always  
         resources:

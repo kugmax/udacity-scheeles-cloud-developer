@@ -5,7 +5,7 @@ metadata:
     service: feed-service
   name: feed-service
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       service: feed-service
@@ -30,7 +30,22 @@ spec:
           valueFrom:
             configMapKeyRef:
               name: env-config
-              key: URL 
+              key: URL
+        - name: AWS_BUCKET
+          valueFrom:
+            configMapKeyRef:
+              name: env-config
+              key: AWS_BUCKET
+        - name: AWS_PROFILE
+          valueFrom:
+            configMapKeyRef:
+              name: env-config
+              key: AWS_PROFILE
+        - name: AWS_REGION
+          valueFrom:
+            configMapKeyRef:
+              name: env-config
+              key: AWS_REGION
         - name: JWT_SECRET
           valueFrom:
             configMapKeyRef:
@@ -64,5 +79,4 @@ spec:
       volumes:
       - name: aws-secret
         secret:
-          secretName: aws-secret   
-      restartPolicy: Always
+          secretName: aws-secret

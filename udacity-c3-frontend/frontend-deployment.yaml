@@ -5,7 +5,7 @@ metadata:
     service: frontend-service
   name: frontend-service
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       service: frontend-service

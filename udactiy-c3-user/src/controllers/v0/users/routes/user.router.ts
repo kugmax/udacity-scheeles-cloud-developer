@@ -8,6 +8,8 @@ const router: Router = Router();
 router.use('/auth', AuthRouter);
 
 router.get('/', async (req: Request, res: Response) => {
+	const items = await User.findAll();
+    res.status(200).send(items.map(u => u.short()));
 });
 
 router.get('/:id', async (req: Request, res: Response) => {

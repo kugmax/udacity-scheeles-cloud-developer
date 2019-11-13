@@ -1,7 +1,7 @@
 version: '3'
 services:
   user_service:
-    container_name: user_service
+    container_name: user-service
     build:
       context: ./udactiy-c3-user
       dockerfile: Dockerfile
@@ -12,7 +12,7 @@ services:
     env_file:
       - scheeles.env
   feed_service:
-    container_name: feed_service
+    container_name: feed-service
     build:
       context: ./udacity-c3-feed
       dockerfile: Dockerfile
@@ -32,7 +32,7 @@ services:
       - user_service
       - feed_service    
   frontend_service:
-    container_name: frontend_service
+    container_name: frontend-service
     build:
       context: ./udacity-c3-frontend
       dockerfile: Dockerfile
